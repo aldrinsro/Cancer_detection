@@ -5,6 +5,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 import pickle
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA= BASE_DIR.parent / "data" / "data.csv"
+
+
 
 def create_model(data): 
   X = data.drop(['diagnosis'], axis=1)
@@ -32,7 +38,7 @@ def create_model(data):
 
 
 def get_clean_data():
-  data = pd.read_csv("../data/data.csv")
+  data = pd.read_csv(DATA)
   
   data = data.drop(['Unnamed: 32', 'id'], axis=1)
   
