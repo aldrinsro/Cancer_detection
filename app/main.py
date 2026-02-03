@@ -8,9 +8,13 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 CSS_FILE = BASE_DIR.parent / "assets" / "style.css"
+DATA= BASE_DIR.parent / "data" / "data.csv"
+MODEL = BASE_DIR.parent / "model" / "model.pkl"
+SCALER = BASE_DIR.parent / "model" / "scaler.pkl"
+
 
 def get_clean_data():
-    data = pd.read_csv("../data/data.csv")
+    data = pd.read_csv(DATA)
     data = data.drop(['Unnamed: 32', 'id'], axis=1)
     data['diagnosis'] = data['diagnosis'].map({ 'M': 1, 'B': 0 })
     
@@ -154,8 +158,8 @@ def get_radar_chart(input_data) :
 
 
 def add_prediction(input_data) :
-    model = pickle.load(open('../model/model.pkl','rb'))
-    scaler = pickle.load(open('../model/scaler.pkl','rb'))
+    model = pickle.load(open(MODEL,'rb'))
+    scaler = pickle.load(open(SCALER,'rb'))
     input_array = np.array([list(input_data.values())])
 
     input_array = scaler.transform(input_array)
