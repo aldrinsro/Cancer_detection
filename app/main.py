@@ -3,6 +3,11 @@ import pickle
 import pandas as pd 
 import plotly.graph_objects as go 
 import numpy as np 
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent
+CSS_FILE = BASE_DIR.parent / "assets" / "style.css"
 
 def get_clean_data():
     data = pd.read_csv("../data/data.csv")
@@ -179,7 +184,7 @@ def main():
         initial_sidebar_state="expanded"
         )
     
-    with open("../assets/style.css") as f :
+    with open(CSS_FILE) as f :
         st.markdown("<style>{}</style>".format(f.read()),unsafe_allow_html=True)
 
     input_data = add_sidebar()
