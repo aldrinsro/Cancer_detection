@@ -1,0 +1,23 @@
+.st-emotion-cache-ukvpxj{
+    padding:1rem;
+    border-radius:0.5rem;
+    background-color:#324d60;
+}
+
+.st-emotion-cache-3pwa5w{
+    color:azure;
+    padding:0.2rem;
+} 
+
+.diagnosis{
+    color :#ffffff;
+    padding:0.2em 0.5rem;
+    border-radius:0.5em;
+}
+
+.diagnosis.begin{
+    background-color: #4CAF50;
+}
+.diagnosis.Malicious{
+    background-color: #f44336;
+}
